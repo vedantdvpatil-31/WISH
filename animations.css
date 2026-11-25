@@ -1,0 +1,384 @@
+/* ============================================================
+   ANIMATIONS & MOTION EFFECTS
+   ============================================================ */
+
+/* Gentle Bobbing for buttons & arrows */
+@keyframes gentleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* Fairy Lights Flicker */
+@keyframes lightFlicker {
+    0% { opacity: 0.85; filter: brightness(0.95); }
+    50% { opacity: 1; filter: brightness(1.2) drop-shadow(0 0 10px #ffea75); }
+    100% { opacity: 0.9; filter: brightness(1); }
+}
+
+/* Poppers Shake */
+@keyframes popShake {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.15) rotate(-6deg); }
+    50% { transform: scale(1.2) rotate(6deg); }
+    75% { transform: scale(1.1) rotate(-3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Balloon Float & Drift */
+@keyframes floatDrift {
+    0% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-18px) rotate(3deg); }
+    100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+/* Animal Idle Wiggle */
+@keyframes gentleWiggle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(-4px) rotate(-2deg); }
+    70% { transform: translateY(-2px) rotate(2deg); }
+}
+
+/* Animal Party Celebration Jump */
+@keyframes animalJump {
+    0%, 100% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-25px) scale(1.1) rotate(-6deg); }
+    60% { transform: translateY(-15px) scale(1.05) rotate(6deg); }
+    80% { transform: translateY(-5px) scale(1.02); }
+}
+
+.animal-party-jump {
+    animation: animalJump 1s infinite ease-in-out !important;
+}
+
+/* Candle Flame Flickering */
+@keyframes flameFlicker {
+    0% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 4px #ffaa00); }
+    25% { transform: scale(1.08, 0.95) rotate(2deg); }
+    50% { transform: scale(0.95, 1.05) rotate(-1deg); filter: drop-shadow(0 0 8px #ff7700); }
+    75% { transform: scale(1.04, 1) rotate(1deg); }
+    100% { transform: scale(1) rotate(-2deg); }
+}
+
+/* Candle Blow Out */
+.candle-flame.blow-out {
+    animation: flameBlowOut 0.5s forwards ease-in-out !important;
+}
+
+@keyframes flameBlowOut {
+    0% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.4, 0.4) rotate(25deg); opacity: 0.7; }
+    100% { transform: scale(0.2) translate(15px, -10px); opacity: 0; }
+}
+
+/* Smoke Rising after Candles blown */
+.candle-smoke.smoke-rise {
+    animation: smokeDrift 1.6s forwards ease-out !important;
+}
+
+@keyframes smokeDrift {
+    0% { opacity: 0.9; transform: translateY(0) scale(1); }
+    50% { opacity: 0.6; transform: translateY(-20px) translateX(8px) scale(2.2); }
+    100% { opacity: 0; transform: translateY(-45px) translateX(-6px) scale(3.5); }
+}
+
+/* Ceremonial Knife Animations */
+.ceremonial-knife.knife-ready {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1) translateY(0);
+}
+
+.ceremonial-knife.knife-cutting {
+    animation: knifeSlice 1s forwards ease-in-out;
+}
+
+@keyframes knifeSlice {
+    0% { transform: rotate(-15deg) scale(1); }
+    40% { transform: rotate(-5deg) translate(-40px, 45px); }
+    70% { transform: rotate(0deg) translate(-65px, 60px); }
+    100% { transform: rotate(5deg) translate(-65px, 65px); }
+}
+
+.ceremonial-knife.knife-done {
+    opacity: 0;
+    transform: translateY(-30px) rotate(-45deg);
+}
+
+/* Cake Slice Extract & Vanish */
+.cake-slice-wedge.slice-extract {
+    animation: sliceSlideOut 0.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sliceSlideOut {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(35px, 20px) scale(1.05); }
+}
+
+.cake-slice-wedge.slice-vanish {
+    animation: sliceDisappear 0.8s forwards ease-in-out;
+}
+
+@keyframes sliceDisappear {
+    0% { opacity: 1; transform: translate(35px, 20px) scale(1.05); }
+    50% { opacity: 0.7; transform: translate(45px, 15px) scale(0.85); filter: drop-shadow(0 0 14px #d4af37); }
+    100% { opacity: 0; transform: translate(55px, 0px) scale(0.1); filter: drop-shadow(0 0 25px #ffd700); }
+}
+
+/* Button Glow Pulse */
+.pulse-glow {
+    animation: pulseGlowKeyframes 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlowKeyframes {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(179, 29, 61, 0.4), 0 10px 24px rgba(122, 12, 35, 0.3); }
+    50% { box-shadow: 0 0 0 14px rgba(179, 29, 61, 0), 0 14px 34px rgba(122, 12, 35, 0.5); }
+}
+
+/* Gift Box Tremble / Anticipation */
+@keyframes boxTremble {
+    0%, 85%, 100% { transform: rotate(0deg) scale(1); }
+    88% { transform: rotate(-3deg) scale(1.03); }
+    91% { transform: rotate(3deg) scale(1.03); }
+    94% { transform: rotate(-2deg) scale(1.02); }
+    97% { transform: rotate(2deg) scale(1.01); }
+}
+
+/* Gift Box Opening Sequence */
+.gift-box-3d.box-opening .gift-box-lid {
+    transform: translateY(-90px) rotate(-25deg) scale(1.1);
+    opacity: 0.6;
+}
+
+.gift-box-3d.box-opening .ribbon-bow {
+    transform: translateY(-110px) scale(0);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+/* Vintage Envelope Unsealing */
+.vintage-envelope-seal-box.envelope-unsealed .envelope-flap-top {
+    transform: rotateX(180deg);
+}
+
+.vintage-envelope-seal-box.envelope-unsealed .envelope-wax-heart {
+    transform: scale(1.4);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* Letter Stationery Unfolding */
+.letter-stationery {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
+}
+
+.letter-stationery.letter-unfolded {
+    animation: letterUnfoldAnim 1.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes letterUnfoldAnim {
+    0% { transform: scale(0.92) translateY(30px); opacity: 0.5; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.letter-para {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-para.para-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================
+   SECTION 1 CHOREOGRAPHED SEQUENTIAL ENTRANCE KEYFRAMES
+   Step 1 (0-2s): Background Reveal
+   Step 2 (2-4s): Birthday Lights
+   Step 3 (4-6s): Balloons
+   Step 4 (6-8s): Happy Birthday
+   Step 5 (8-10s): PRANJAL (Staggered letters)
+   Step 6 (10-12s): Decorations, 18 Badge & Date, Subtitle, Confetti
+   Step 7 (12-14s): Let's Celebrate Button & Scroll
+   ============================================================ */
+
+/* Step 1: Dark Burgundy Curtain Fade */
+@keyframes curtainFadeOut {
+    0% { opacity: 1; visibility: visible; }
+    20% { opacity: 1; }
+    85% { opacity: 0.2; }
+    100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@keyframes ambientSpotlight {
+    0% { opacity: 0; transform: scale(0.65); }
+    40% { opacity: 0.5; }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Step 2: Birthday Lights Progressive Illumination */
+@keyframes lightProgressiveOn {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+        filter: brightness(0.2) drop-shadow(0 0 0 rgba(0,0,0,0));
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.35);
+        filter: brightness(1.7) drop-shadow(0 0 20px #ffd700);
+    }
+    100% {
+        opacity: 0.95;
+        transform: scale(1);
+        filter: brightness(1.2) drop-shadow(0 0 14px #ffcc00);
+    }
+}
+
+@keyframes sparkleTwinkle {
+    0% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(45deg); filter: drop-shadow(0 0 8px #ffd700); }
+    100% { opacity: 0.85; transform: scale(1) rotate(90deg); filter: drop-shadow(0 0 4px #d4af37); }
+}
+
+/* Step 3: Balloon Float In from Bottom/Sides */
+@keyframes balloonFloatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(115vh) scale(0.6);
+    }
+    35% {
+        opacity: 0.85;
+    }
+    80% {
+        transform: translateY(-12px) scale(1.03);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Step 4: Happy Birthday Cinematic Scale-up & Shimmer */
+@keyframes happyBirthdayCinematic {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(24px);
+        filter: blur(8px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-4px);
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+    }
+}
+
+/* Step 5: PRANJAL Staggered Letter Drop & Flare */
+@keyframes letterDropReveal {
+    0% {
+        opacity: 0;
+        transform: scale(2.4) translateY(-45px);
+        filter: blur(12px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(0.92) translateY(5px);
+        filter: blur(0px);
+    }
+    82% {
+        transform: scale(1.1) translateY(-2px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px);
+    }
+}
+
+@keyframes starCrownPop {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-45deg);
+    }
+    65% {
+        opacity: 1;
+        transform: scale(1.35) rotate(15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Step 6: Gentle Upward Fade for Subtitle, Badge, Stats & Poppers */
+@keyframes fadeUpReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+/* Step 7: Final CTA Button Entrance */
+@keyframes ctaReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(28px) scale(0.92);
+        pointer-events: none;
+    }
+    65% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.04);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+}
+
+/* Glow Text */
+.glow-text {
+    color: var(--cherry-primary);
+    text-shadow: 0 0 10px rgba(179, 29, 61, 0.3);
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    #section-1 .entrance-curtain-overlay,
+    #section-1 .skip-intro-btn {
+        display: none !important;
+    }
+
+    #section-1 .fairy-light,
+    #section-1 .decor-balloon,
+    #section-1 .hero-happy-birthday-wrap,
+    #section-1 .hero-name-pranjal .letter,
+    #section-1 .name-star-crown,
+    #section-1 .hero-subtitle-seq,
+    #section-1 .hero-poppers-seq,
+    #section-1 .hero-badge-seq,
+    #section-1 .hero-stats-seq,
+    #section-1 .hero-cta-btn,
+    #section-1 .hero-scroll-btn {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        pointer-events: auto !important;
+    }
+}

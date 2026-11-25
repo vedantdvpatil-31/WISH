@@ -1,0 +1,389 @@
+/* ============================================================
+   BIRTHDAY CELEBRATION KIT STYLESHEET
+   Adds aesthetic, whimsical, and emotional celebration elements
+   across all 7 sections of Pranjal's 18th Birthday Website.
+   ============================================================ */
+
+/* Base Decoration Container Layer */
+.bday-decor-kit {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Individual Decoration Element Base */
+.decor-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.85;
+    will-change: transform, opacity;
+    transition: transform 0.3s ease;
+}
+
+.decor-item svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 10px rgba(122, 12, 35, 0.12));
+}
+
+/* Dark Theme Sections (#section-4 & #section-6) glow adjustments */
+#section-4 .decor-item svg,
+#section-6 .decor-item svg {
+    filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.4)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* Section 1 Choreographed Sequence Integration (Step 6 reveal 10.4s) */
+#section-1:not(.entrance-complete) .hero-decor-seq {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUpReveal 1.2s forwards ease-out;
+    animation-delay: 10.4s;
+    pointer-events: none;
+}
+
+#section-1.entrance-complete .hero-decor-seq {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS (Lightweight & Smooth)
+   ============================================================ */
+
+/* Gentle Floating with slight rotation */
+@keyframes bdayFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-16px) rotate(4deg);
+    }
+}
+
+/* Slow Gentle Swaying (like balloons or ribbons) */
+@keyframes bdaySway {
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+    50% {
+        transform: rotate(6deg) translateY(-10px);
+    }
+}
+
+/* Soft Twinkling & Sparkling */
+@keyframes bdayTwinkle {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.85) rotate(0deg);
+    }
+    50% {
+        opacity: 0.95;
+        transform: scale(1.15) rotate(15deg);
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+    }
+}
+
+/* Gentle Drifting (Petals & Hearts) */
+@keyframes bdayDrift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(8px, -12px) rotate(8deg);
+    }
+    66% {
+        transform: translate(-6px, -20px) rotate(-6deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Gentle Bouncing */
+@keyframes bdayBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    40% {
+        transform: translateY(-12px) scale(1.05);
+    }
+    60% {
+        transform: translateY(-6px) scale(0.98);
+    }
+}
+
+/* Candle Flame Flicker */
+@keyframes bdayFlicker {
+    0%, 100% {
+        transform: scale(1) rotate(-1deg);
+        filter: drop-shadow(0 0 8px rgba(255, 170, 0, 0.8));
+    }
+    30% {
+        transform: scale(1.1, 0.95) rotate(2deg);
+        filter: drop-shadow(0 0 14px rgba(255, 200, 50, 0.9));
+    }
+    70% {
+        transform: scale(0.95, 1.05) rotate(-2deg);
+        filter: drop-shadow(0 0 6px rgba(255, 140, 0, 0.7));
+    }
+}
+
+/* Streamer Waving */
+@keyframes bdayWave {
+    0%, 100% {
+        transform: rotate(0deg) skewX(0deg);
+    }
+    50% {
+        transform: rotate(3deg) skewX(4deg);
+    }
+}
+
+/* ============================================================
+   ANIMATION UTILITY CLASSES
+   ============================================================ */
+.anim-float {
+    animation: bdayFloat var(--anim-dur, 5s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+}
+
+.anim-sway {
+    animation: bdaySway var(--anim-dur, 6s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+    transform-origin: bottom center;
+}
+
+.anim-twinkle {
+    animation: bdayTwinkle var(--anim-dur, 3.5s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+}
+
+.anim-drift {
+    animation: bdayDrift var(--anim-dur, 7s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+}
+
+.anim-bounce {
+    animation: bdayBounce var(--anim-dur, 4s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+}
+
+.anim-flicker {
+    animation: bdayFlicker var(--anim-dur, 2s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+    transform-origin: bottom center;
+}
+
+.anim-wave {
+    animation: bdayWave var(--anim-dur, 5.5s) ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+    transform-origin: top center;
+}
+
+/* ============================================================
+   SPECIFIC DECORATION SIZES & VARIANTS
+   ============================================================ */
+
+/* Balloons */
+.decor-balloon-item {
+    width: 48px;
+    height: 68px;
+}
+.decor-balloon-item.size-lg {
+    width: 62px;
+    height: 88px;
+}
+.decor-balloon-item.size-sm {
+    width: 36px;
+    height: 52px;
+}
+
+/* Wrapped Gift Presents */
+.decor-gift-item {
+    width: 44px;
+    height: 44px;
+}
+.decor-gift-item.size-lg {
+    width: 56px;
+    height: 56px;
+}
+.decor-gift-item.size-sm {
+    width: 34px;
+    height: 34px;
+}
+
+/* Birthday Cakes & Slices */
+.decor-cake-item {
+    width: 48px;
+    height: 48px;
+}
+.decor-cake-item.size-lg {
+    width: 60px;
+    height: 60px;
+}
+.decor-cake-item.size-sm {
+    width: 36px;
+    height: 36px;
+}
+
+/* Candles */
+.decor-candle-item {
+    width: 24px;
+    height: 46px;
+}
+.decor-candle-item.size-lg {
+    width: 30px;
+    height: 58px;
+}
+
+/* Hearts */
+.decor-heart-item {
+    width: 32px;
+    height: 32px;
+}
+.decor-heart-item.size-lg {
+    width: 44px;
+    height: 44px;
+}
+.decor-heart-item.size-sm {
+    width: 24px;
+    height: 24px;
+}
+
+/* Stars & Sparkles */
+.decor-star-item {
+    width: 28px;
+    height: 28px;
+}
+.decor-star-item.size-lg {
+    width: 40px;
+    height: 40px;
+}
+.decor-star-item.size-sm {
+    width: 20px;
+    height: 20px;
+}
+
+/* Flowers & Petals */
+.decor-flower-item {
+    width: 34px;
+    height: 34px;
+}
+.decor-flower-item.size-lg {
+    width: 46px;
+    height: 46px;
+}
+.decor-flower-item.size-sm {
+    width: 26px;
+    height: 26px;
+}
+
+/* Party Poppers & Hats */
+.decor-popper-item {
+    width: 42px;
+    height: 42px;
+}
+.decor-partyhat-item {
+    width: 38px;
+    height: 46px;
+}
+
+/* Streamers & Ribbons */
+.decor-streamer-item {
+    width: 70px;
+    height: 50px;
+}
+.decor-ribbon-item {
+    width: 46px;
+    height: 38px;
+}
+
+/* ============================================================
+   RESPONSIVENESS & MEDIA QUERIES
+   ============================================================ */
+
+/* Tablet (Max 992px) */
+@media (max-width: 992px) {
+    .decor-item {
+        opacity: 0.75;
+    }
+    .decor-item.size-lg {
+        transform: scale(0.85);
+    }
+}
+
+/* Mobile (Max 768px): Scale down and hide extra edge decorations */
+@media (max-width: 768px) {
+    .decor-item {
+        opacity: 0.7;
+    }
+    .decor-balloon-item {
+        width: 36px;
+        height: 52px;
+    }
+    .decor-gift-item {
+        width: 34px;
+        height: 34px;
+    }
+    .decor-cake-item {
+        width: 36px;
+        height: 36px;
+    }
+    .decor-star-item {
+        width: 22px;
+        height: 22px;
+    }
+    .decor-heart-item {
+        width: 24px;
+        height: 24px;
+    }
+    .decor-flower-item {
+        width: 26px;
+        height: 26px;
+    }
+    .decor-streamer-item {
+        width: 50px;
+        height: 36px;
+    }
+    /* Hide some peripheral elements to prevent mobile clutter */
+    .decor-item.hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Small Mobile (Max 480px) */
+@media (max-width: 480px) {
+    .decor-item.hide-small {
+        display: none !important;
+    }
+    .decor-item {
+        opacity: 0.6;
+    }
+}
+
+/* ============================================================
+   ACCESSIBILITY: RESPECT PREFERS-REDUCED-MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .bday-decor-kit .decor-item,
+    .bday-decor-kit .anim-float,
+    .bday-decor-kit .anim-sway,
+    .bday-decor-kit .anim-twinkle,
+    .bday-decor-kit .anim-drift,
+    .bday-decor-kit .anim-bounce,
+    .bday-decor-kit .anim-flicker,
+    .bday-decor-kit .anim-wave {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 0.55 !important;
+    }
+}
